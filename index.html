@@ -2,6 +2,7 @@
 <html>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js">
 var baseUrl = 'https://concur.okta.com';
+  runfunc(){
   console.log('started');
 $.ajax({
   url: baseUrl + '/api/v1/users/me',
@@ -27,7 +28,8 @@ $.ajax({
   }
   alert(title + ': ' + message);
 });
-console.log('done');
+console.log('done');}
+  
 </script>
 
   
@@ -35,5 +37,6 @@ console.log('done');
 
   
   <body>
+    <button name="btn1" onclick="runfunc()"></button>
 </body>
 </html>
