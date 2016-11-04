@@ -7,8 +7,8 @@ var baseUrl = 'https://concur.okta.com';
 $.ajax({
   url: baseUrl + '/api/v1/users/me',
   type: 'GET',
-  xhrFields: { withCredentials: true,
-                Access-Control-Allow-Origin:*},
+  xhrFields: { withCredentials: true
+              },
   accept: 'application/json'
 }).done(function(data) {
     alert(data);
