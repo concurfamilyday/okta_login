@@ -12,7 +12,7 @@ if ("withCredentials" in xhr) {
     xhr.onload = function() {
         alert(this.responseText);
     };
-    xhr.open('GET', baseUrl + '/api/v1/users/me', true);
+    xhr.open('GET', baseUrl + '/api/v1/users/harmeet.singh@concur.com', true);
     xhr.withCredentials = true;
     //xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
     xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
