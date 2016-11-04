@@ -5,11 +5,12 @@
   <head></head>
 
   
-  <body>
-    <button name="btn1" onclick="runfunc()">click this to continue</button>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js">
+  
+   
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
 var baseUrl = 'https://concur.okta.com';
- function runfunc(){
+function runfunc(){
   console.log('started');
 $.ajax({
   url: baseUrl + '/api/v1/users/me',
@@ -38,8 +39,8 @@ $.ajax({
 console.log('done');}
   
 </script>
-
- 
+<body>
+  <button name="btn" onclick="runfunc()">click this to continue</button>
  
  </body>
 </html>
