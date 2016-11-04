@@ -15,9 +15,9 @@ if ("withCredentials" in xhr) {
     xhr.open('GET', baseUrl + '/api/v1/users/me', true);
     xhr.withCredentials = true;
     //xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-    xhr.setRequestHeader('Access-Control-Allow-Origin: *');
-    xhr.setRequestHeader('Access-Control-Allow-Methods: GET, POST');
-    xhr.setRequestHeader("Access-Control-Allow-Headers: X-Requested-With");
+    xhr.setRequestHeader('Access-Control-Allow-Origin:', '*');
+    xhr.setRequestHeader('Access-Control-Allow-Methods:','GET', 'POST');
+    xhr.setRequestHeader('Access-Control-Allow-Headers:',' X-Requested-With');
 
     xhr.send();
 } else {
