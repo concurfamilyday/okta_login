@@ -2,6 +2,7 @@
 <html>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js">
 var baseUrl = 'https://concur.okta.com';
+  console.log('started');
 $.ajax({
   url: baseUrl + '/api/v1/users/me',
   type: 'GET',
@@ -9,6 +10,7 @@ $.ajax({
               },
   accept: 'application/json'
 }).done(function(data) {
+  console.log('here');
     alert(data);
 })
 .fail(function(xhr, textStatus, error) {
@@ -25,7 +27,7 @@ $.ajax({
   }
   alert(title + ': ' + message);
 });
-                   
+console.log('done');
 </script>
 
   
