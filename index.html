@@ -4,25 +4,30 @@
 <body>
 <script type="text/javascript">
 var baseUrl = 'https://concur.okta.com';
-var xhr = new XMLHttpRequest();
-if ("withCredentials" in xhr) {
-    xhr.onerror = function() {
-      alert('Invalid URL or Cross-Origin Request Blocked.  You must explictly add this site (' + window.location.origin + ') to the list of allowed websites in your Okta Admin Dashboard');
-    }
-    xhr.onload = function() {
-        alert(this.responseText);
-    };
-    xhr.open('GET', baseUrl + '/api/v1/users/harmeet.singh@concur.com', true);
-    xhr.withCredentials = true;
-    //xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-    xhr.setRequestHeader('Access-Control-Allow-Methods','GET, POST');
-    xhr.setRequestHeader('Access-Control-Allow-Headers',' X-Requested-With');
+$.ajax({
+  url: baseUrl + '/api/v1/users/me',
+  type: 'GET',
+  xhrFields: { withCredentials: true,
+                Access-Control-Allow-Origin:*},
+  accept: 'application/json'
+}).done(function(data) {
+    alert(data);
+})
+.fail(function(xhr, textStatus, error) {
+  var title, message;
+  switch (xhr.status) {
+    case 403 :
+      title = xhr.responseJSON.errorSummary;
+      message = 'Please login to your Okta organization before running the test';
+      break;
+    default :
+      title = 'Invalid URL or Cross-Origin Request Blocked';
+      message = 'You must explictly add this site (' + window.location.origin + ') to the list of allowed websites in your Okta Admin Dashboard';
+      break;
+  }
+  alert(title + ': ' + message);
+});
 
-    xhr.send();
-} else {
-    alert("CORS is not supported for this browser!");
-}
 </script>
 </body>
 </html>
