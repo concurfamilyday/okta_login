@@ -5,7 +5,6 @@
 <script type="text/javascript">
 var baseUrl = 'https://concur.okta.com';
 var xhr = new XMLHttpRequest();
-xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
 if ("withCredentials" in xhr) {
     xhr.onerror = function() {
       alert('Invalid URL or Cross-Origin Request Blocked.  You must explictly add this site (' + window.location.origin + ') to the list of allowed websites in your Okta Admin Dashboard');
@@ -15,6 +14,8 @@ if ("withCredentials" in xhr) {
     };
     xhr.open('GET', baseUrl + '/api/v1/users/me', true);
     xhr.withCredentials = true;
+    xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+
     xhr.send();
 } else {
     alert("CORS is not supported for this browser!");
